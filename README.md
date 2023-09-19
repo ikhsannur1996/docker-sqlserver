@@ -19,7 +19,7 @@ docker pull mcr.microsoft.com/mssql/server
 Now, let's run the SQL Server container with the necessary configurations. Replace `YourStrongPassword` with a strong and secure password for the SQL Server `SA` (System Administrator) account.
 
 ```bash
-docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=supersecret1' -p 1433:1433 --restart unless-stopped -d mcr.microsoft.com/mssql/server
+docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=supersecret1' -p 1433:1433 -e 'MSSQL_PID=Express' --restart unless-stopped -d mcr.microsoft.com/mssql/server
 ```
 
 Explanation of the command arguments:
@@ -31,6 +31,7 @@ Explanation of the command arguments:
 - `--restart unless-stopped`: Configures the container to automatically restart unless it is explicitly stopped by the user or during system reboot. This ensures that the SQL Server container continues running even after system reboots.
 - `-d`: Runs the container in detached mode, which means it runs in the background, and the terminal is not attached to its console.
 - `mcr.microsoft.com/mssql/server`: Specifies the Docker image to use for running the SQL Server container. This is the official Microsoft SQL Server Docker image available on Docker Hub.
+- `-e 'MSSQL_PID=Express'`: Sets the `MSSQL_PID` environment variable to "Express," which configures SQL Server to use the Express edition. This edition allows both Windows and SQL Server authentication by default.
 
 ## Step 3: Verify SQL Server Installation
 

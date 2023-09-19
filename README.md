@@ -19,7 +19,7 @@ docker pull mcr.microsoft.com/mssql/server
 Now, let's run the SQL Server container with the necessary configurations. Replace `YourStrongPassword` with a strong and secure password for the SQL Server `SA` (System Administrator) account.
 
 ```bash
-docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrongPassword' -p 1433:1433 --restart unless-stopped -d mcr.microsoft.com/mssql/server
+docker run --name sqlserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=supersecret1' -p 1433:1433 --restart unless-stopped -d mcr.microsoft.com/mssql/server
 ```
 
 Explanation of the command arguments:
